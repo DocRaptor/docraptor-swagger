@@ -8,8 +8,10 @@ Repeatable process for generating DocRaptor API clients using the latest develop
 script/setup
 ```
 
-## Build & Try with Ruby
+## Build & Try with Language X
 
 ```sh
 script/ruby
+script/python
 ```
+
