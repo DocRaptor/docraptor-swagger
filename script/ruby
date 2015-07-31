@@ -17,7 +17,7 @@ if [ ! -d "${APP_DIR}" ]; then
   APP_DIR=`cd "${APP_DIR}"; pwd`
 fi
 
-executable="swagger-client/modules/swagger-codegen-cli/target/swagger-codegen-cli.jar"
+executable="./swagger-codegen/modules/swagger-codegen-cli/target/swagger-codegen-cli.jar"
 
 if [ ! -f "$executable" ]
 then
@@ -26,11 +26,13 @@ fi
 
 # if you've executed sbt assembly previously it will use that instead.
 export JAVA_OPTS="${JAVA_OPTS} -XX:MaxPermSize=256M -Xmx1024M -DloggerPath=conf/log4j.properties"
+ags="$@ generate -t swagger-codegen/modules/swagger-codegen/src/main/resources/ruby -c config.ruby.json -i docraptor.yaml -l ruby -o output/ruby"
 
-rm -rf docraptor/output/ruby
-ags="$@ generate -t swagger-client/modules/swagger-codegen/src/main/resources/ruby -c config.ruby.json -i docraptor.yaml -l ruby -o output/ruby"
+rm -rf output/ruby
+mkdir -p output/ruby
 
 java $JAVA_OPTS -jar $executable $ags
+
 
 cd test/ruby
 bundle install
