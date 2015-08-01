@@ -1,0 +1,8 @@
+#!/bin/sh
+set -e
+cd "`dirname \"$0\"`/.."
+
+./script/generate_language php
+
+cd test/php
+php basic.php
