@@ -11,6 +11,10 @@ fi
 
 which mono || brew install mono
 
+(php -v | grep 'PHP 5.3') || brew install homebrew/php/php53
+which composer || brew install homebrew/php/composer
+
+
 rm -rf ./output/ # clean-up previous generated client directory
 ./script/swagger
 
