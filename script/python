@@ -1,4 +1,5 @@
 #!/bin/sh
+set -e
 
 SCRIPT="$0"
 
@@ -35,6 +36,7 @@ java $JAVA_OPTS -jar $executable $ags
 
 
 cd test/python
+source venv/bin/activate
 sudo pip install ../../output/python/
 
 python basic.py
