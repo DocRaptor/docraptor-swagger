@@ -1,3 +1,4 @@
 source "https://rubygems.org"
+
 gem "pry"
-gem "docraptor", path: "../../output/ruby"
+gem "docraptor", path: "../../clients/ruby"

@@ -4,11 +4,11 @@ cd "`dirname \"$0\"`/.."
 
 ./script/generate_language java
 
-cd output/java
+cd clients/java
 mvn package
 
 cd ../../test/java
 echo "compiling test class..."
-javac -classpath .:"../../output/java/target/swagger-java-client-1.0.0.jar" basic.java
+javac -classpath .:"../../clients/java/target/swagger-java-client-1.0.0.jar" basic.java
 echo "running tests"
-java -classpath .:"../../output/java/target/swagger-java-client-1.0.0.jar":"../../output/java/target/lib/*" Basic
+java -classpath .:"../../clients/java/target/swagger-java-client-1.0.0.jar":"../../clients/java/target/lib/*" Basic

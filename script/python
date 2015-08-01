@@ -6,5 +6,5 @@ cd "`dirname \"$0\"`/.."
 
 cd test/python
 source venv/bin/activate
-sudo pip install ../../output/python/
+sudo pip install ../../clients/python/
 python basic.py
