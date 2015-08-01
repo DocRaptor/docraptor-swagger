@@ -27,6 +27,7 @@ $default_api = new DefaultApi();
 $api_client = $default_api->getApiClient();
 $configuration = $api_client->getConfig();
 $configuration->setUsername("YOUR_API_KEY_HERE");
+$configuration->setDebug(true);
 
 $default_api->docsPost($new_doc);
 
