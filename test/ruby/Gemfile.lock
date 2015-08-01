@@ -1,5 +1,5 @@
 PATH
-  remote: ../../output/ruby
+  remote: ../../clients/ruby
   specs:
     docraptor (1.0.0)
       json (~> 1.4, >= 1.4.6)
