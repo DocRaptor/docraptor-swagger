@@ -7,10 +7,12 @@ echo "=========== generating csharp source"
 
 echo "=========== compiling docraptor.dll"
 cd clients/csharp
-mcs -reference:bin/Newtonsoft.Json.dll,bin/RestSharp.dll,System.Runtime.Serialization.dll -target:library -out:./bin/docraptor.dll -recurse:./src/*.cs -doc:bin\.xml
+mcs -reference:bin/Newtonsoft.Json.dll,bin/RestSharp.dll,System.Runtime.Serialization.dll -target:library -out:./bin/docraptor.dll -recurse:./src/*.cs
+rm ../../test/csharp/*.dll
+cp bin/*.dll ../../test/csharp
 
 echo "============== running tests"
 cd ../../test/csharp
-mcs -lib:../../clients/csharp/ -reference:../../clients/csharp/bin/docraptor.dll,bin/Newtonsoft.Json.dll,bin/RestSharp.dll,System.Runtime.Serialization.dll basic.cs
+mcs -reference:Newtonsoft.Json.dll,RestSharp.dll,System.Runtime.Serialization.dll,docraptor.dll basic.cs
 
 mono basic.exe
