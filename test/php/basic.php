@@ -31,19 +31,4 @@ $configuration->setDebug(true);
 
 $default_api->docsPost($new_doc);
 
-
-// # pecl_http must be installed
-// $api_key = "YOUR_API_KEY_HERE";
-// $url = "https://docraptor.com/docs?user_credentials=$api_key";
-
-// $request = new HTTPRequest($url, HTTP_METH_POST);
-// $request->setPostFields(array('doc[document_url ]'    => "http://www.docraptor.com/examples/invoice.html",
-//                               'doc[document_type]'    => 'pdf',
-//                               'doc[name]'             => 'my_doc.pdf',
-//                               'doc[test]'             => 'true'));
-// $request->send();
-
-// $file = fopen ("docraptor.pdf", "w");
-// fwrite($file, $request->getResponseBody());
-// fclose ($file);
 ?>
