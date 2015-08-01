@@ -8,7 +8,7 @@ echo "=========== generating csharp source"
 echo "=========== compiling docraptor.dll"
 cd clients/csharp
 mcs -reference:bin/Newtonsoft.Json.dll,bin/RestSharp.dll,System.Runtime.Serialization.dll -target:library -out:./bin/docraptor.dll -recurse:./src/*.cs
-rm ../../test/csharp/*.dll
+rm -f ../../test/csharp/*.dll
 cp bin/*.dll ../../test/csharp
 
 echo "============== running tests"
