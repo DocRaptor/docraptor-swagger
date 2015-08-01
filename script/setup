@@ -2,7 +2,14 @@
 set -e
 cd "`dirname \"$0\"`/.."
 
-rf -rf ./output/ # clean-up previous generated client directory
+if [ `which python` != "/usr/local/bin/python" ]; then
+	echo "We think you should install python through homebrew for a sudoless experience."
+  echo "Enter to continue ^C to cancel: "
+  read
+  brew install python
+fi
+
+rm -rf ./output/ # clean-up previous generated client directory
 ./script/swagger
 
 

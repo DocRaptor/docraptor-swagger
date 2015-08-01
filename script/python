@@ -5,6 +5,8 @@ cd "`dirname \"$0\"`/.."
 ./script/generate_language python
 
 cd test/python
+which virutualenv || pip install virtualenv
+virtualenv venv
 source venv/bin/activate
-sudo pip install ../../clients/python/
+pip install ../../clients/python/
 python basic.py
