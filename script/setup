@@ -9,6 +9,8 @@ if [ `which python` != "/usr/local/bin/python" ]; then
   brew install python
 fi
 
+which mono || brew install mono
+
 rm -rf ./output/ # clean-up previous generated client directory
 ./script/swagger
 

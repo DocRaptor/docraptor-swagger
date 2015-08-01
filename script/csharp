@@ -1,0 +1,16 @@
+#!/bin/sh
+set -e
+cd "`dirname \"$0\"`/.."
+
+echo "=========== generating csharp source"
+./script/generate_language csharp
+
+echo "=========== compiling docraptor.dll"
+cd clients/csharp
+mcs -reference:bin/Newtonsoft.Json.dll,bin/RestSharp.dll,System.Runtime.Serialization.dll -target:library -out:./bin/docraptor.dll -recurse:./src/*.cs -doc:bin\.xml
+
+echo "============== running tests"
+cd ../../test/csharp
+mcs -lib:../../clients/csharp/ -reference:../../clients/csharp/bin/docraptor.dll,bin/Newtonsoft.Json.dll,bin/RestSharp.dll,System.Runtime.Serialization.dll basic.cs
+
+mono basic.exe
