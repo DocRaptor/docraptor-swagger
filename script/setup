@@ -2,6 +2,7 @@
 set -e
 cd "`dirname \"$0\"`/.."
 
+rf -rf ./output/ # clean-up previous generated client directory
 ./script/swagger
 
 

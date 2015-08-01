@@ -4,9 +4,10 @@ cd "`dirname \"$0\"`/.."
 
 LANGUAGE="$1"
 CONFIG_FILE="config.$LANGUAGE.json"
+CLIENT_DIRECTORY="clients/$LANGUAGE"
 
-rm -rf output/$LANGUAGE
-mkdir -p output/$LANGUAGE
+rm -rf $CLIENT_DIRECTORY
+mkdir -p $CLIENT_DIRECTORY
 
 if [ ! -f "$CONFIG_FILE" ]; then
   echo "Could not find $CONFIG_FILE"
@@ -14,4 +15,4 @@ if [ ! -f "$CONFIG_FILE" ]; then
   exit 1
 fi
 
-./script/swagger generate -t swagger-codegen/modules/swagger-codegen/src/main/resources/$LANGUAGE -c $CONFIG_FILE -i docraptor.yaml -l $LANGUAGE -o output/$LANGUAGE
+./script/swagger generate -t swagger-codegen/modules/swagger-codegen/src/main/resources/$LANGUAGE -c $CONFIG_FILE -i docraptor.yaml -l $LANGUAGE -o CLIENT_DIRECTORY
