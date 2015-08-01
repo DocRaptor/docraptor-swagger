@@ -1,5 +1,6 @@
 #!/bin/bash
 set -e
+cd "`dirname \"$0\"`/.."
 
 if [ ! -d "swagger-codegen" ]; then
   git clone https://github.com/swagger-api/swagger-codegen
