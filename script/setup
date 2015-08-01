@@ -1,11 +1,12 @@
 #!/bin/bash
-
 set -e
+cd "`dirname \"$0\"`/.."
 
-if [ ! -d "swagger-codegen" ]; then
-	git clone https://github.com/swagger-api/swagger-codegen
-fi
+./script/swagger
 
-cd swagger-codegen
-git checkout develop_2.0
-mvn package
+
+echo "****************************************************************"
+echo "*                                                              *"
+echo "*                         Good to go!                          *"
+echo "*                                                              *"
+echo "****************************************************************"

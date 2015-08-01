@@ -1,1 +1,19 @@
-java -jar swagger-codegen/modules/swagger-codegen-cli/target/swagger-codegen-cli.jar $*
+#!/bin/bash
+set -e
+
+if [ ! -d "swagger-codegen" ]; then
+  git clone https://github.com/swagger-api/swagger-codegen
+fi
+
+cd swagger-codegen
+git checkout -q develop_2.0
+cd ..
+
+executable="./swagger-codegen/modules/swagger-codegen-cli/target/swagger-codegen-cli.jar"
+
+if [ ! -f "$executable" ]; then
+  mvn clean package
+fi
+
+export JAVA_OPTS="${JAVA_OPTS} -Xmx1024M -DloggerPath=conf/log4j.properties"
+java $JAVA_OPTS -jar $executable $*
