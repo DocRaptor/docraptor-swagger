@@ -2,13 +2,9 @@
 set -e
 cd "`dirname \"$0\"`/.."
 
-rm -rf output/python
-mkdir -p output/python
-
-./script/swagger generate -t swagger-codegen/modules/swagger-codegen/src/main/resources/python -c config.python.json -i docraptor.yaml -l python -o output/python
+./script/generate_language python
 
 cd test/python
 source venv/bin/activate
 sudo pip install ../../output/python/
-
 python basic.py

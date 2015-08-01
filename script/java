@@ -2,10 +2,7 @@
 set -e
 cd "`dirname \"$0\"`/.."
 
-rm -rf output/java
-mkdir -p output/java
-
-./script/swagger generate -t swagger-codegen/modules/swagger-codegen/src/main/resources/java -c config.java.json -i docraptor.yaml -l java -o output/java
+./script/generate_language java
 
 cd output/java
 mvn package

@@ -1,0 +1,17 @@
+#!/bin/sh
+set -e
+cd "`dirname \"$0\"`/.."
+
+LANGUAGE="$1"
+CONFIG_FILE="config.$LANGUAGE.json"
+
+rm -rf output/$LANGUAGE
+mkdir -p output/$LANGUAGE
+
+if [ ! -f "$CONFIG_FILE" ]; then
+  echo "Could not find $CONFIG_FILE"
+  ./script/swagger config-help -l $LANGUAGE
+  exit 1
+fi
+
+./script/swagger generate -t swagger-codegen/modules/swagger-codegen/src/main/resources/$LANGUAGE -c $CONFIG_FILE -i docraptor.yaml -l $LANGUAGE -o output/$LANGUAGE

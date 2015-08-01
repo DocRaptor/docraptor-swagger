@@ -2,10 +2,7 @@
 set -e
 cd "`dirname \"$0\"`/.."
 
-rm -rf output/ruby
-mkdir -p output/ruby
-
-./script/swagger generate -t swagger-codegen/modules/swagger-codegen/src/main/resources/ruby -c config.ruby.json -i docraptor.yaml -l ruby -o output/ruby
+./script/generate_language ruby
 
 cd test/ruby
 bundle install
