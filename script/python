@@ -5,6 +5,7 @@ cd "`dirname \"$0\"`/.."
 ./script/generate_language python
 
 cd test/python
+rm -rf venv
 which virutualenv || pip install virtualenv
 virtualenv venv
 source venv/bin/activate
