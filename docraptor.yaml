@@ -1,9 +1,5 @@
-# Example YAML to get you started quickly.
-# Be aware that YAML has indentation based scoping.
-# Code completion support is available so start typing for available options.
 swagger: '2.0'
 
-# This is your document metadata
 info:
   version: "0.0.1"
   title: DocRaptor v1
@@ -11,7 +7,6 @@ info:
 host: smoke.docraptor.com
 basePath: /
 schemes: [https]
-# Describe your paths here
 securityDefinitions:
  basicAuth:
   type: basic
@@ -20,41 +15,22 @@ produces:
   - application/pdf
 
 paths:
-  # This is a path endpoint. Change it.
   /docs:
-    # This is a HTTP operation
     post:
-      # Describe this verb here. Note: you can use markdown
       description: |
         Creates a document synchronously.
       security:
         - basicAuth: []
-
       parameters:
-        # An example parameter that is in query and is requiredasdf
-        - name: user_credentials
-          in: query
-          description: Your API key.
-          required: false
-          type: string
-          default: YOUR_API_KEY_HERE
         - name: doc
           in: body
           description: blah
           required: true
-          schema:
+          schema: # code-generators require non-inline schema if it is nested
             $ref: '#/definitions/NewDoc'
-
-
-
-      # Expected responses for this operation:
       responses:
-        # Response code
         200:
           description: Successful response
-          # A schema describing your response object.
-          # Use JSON Schema format
-          
           schema:
             type: file
 
