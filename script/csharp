@@ -1,18 +1,21 @@
 #!/bin/sh
-set -e
+set -ex
 cd "`dirname \"$0\"`/.."
 
-echo "=========== generating csharp source"
+LIB_PATH="clients/csharp"
+SRC_PATH="clients/csharp/src"
+MINIMAL_DOCRAPTOR_LIB="$LIB_PATH/docraptor-minimal.dll"
+EVERYTHING_DOCRAPTOR_LIB="$LIB_PATH/docraptor-all.dll"
+
+TEST_PATH="test/csharp"
+
 ./script/generate_language csharp
 
-echo "=========== compiling docraptor.dll"
-cd clients/csharp
-mcs -reference:bin/Newtonsoft.Json.dll,bin/RestSharp.dll,System.Runtime.Serialization.dll -target:library -out:./bin/docraptor.dll -recurse:./src/*.cs
-rm -f ../../test/csharp/*.dll
-cp bin/*.dll ../../test/csharp
+mcs -lib:$LIB_PATH/bin -reference:Newtonsoft.Json.dll,RestSharp.dll,System.Runtime.Serialization.dll -target:library -out:$MINIMAL_DOCRAPTOR_LIB -recurse:$SRC_PATH/*.cs
 
-echo "============== running tests"
-cd ../../test/csharp
-mcs -reference:Newtonsoft.Json.dll,RestSharp.dll,System.Runtime.Serialization.dll,docraptor.dll basic.cs
+mono test/csharp/ILRepack.exe /internalize /out:$EVERYTHING_DOCRAPTOR_LIB $MINIMAL_DOCRAPTOR_LIB $LIB_PATH/bin/*.dll
 
-mono basic.exe
+mcs -lib:$LIB_PATH -reference:docraptor-all.dll $TEST_PATH/basic.cs -out:$TEST_PATH/basic.exe
+
+cp $EVERYTHING_DOCRAPTOR_LIB $TEST_PATH
+mono $TEST_PATH/basic.exe
