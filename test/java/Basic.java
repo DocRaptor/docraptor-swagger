@@ -12,9 +12,9 @@ public class Basic {
     Doc doc = new Doc();
     NewDoc new_doc = new NewDoc();
     new_doc.setDoc(doc);
-    doc.setName("eli-real-1.pdf");
+    doc.setName("swagger-java.pdf");
     doc.setDocumentType("pdf");
-    doc.setDocumentContent("hihihi");
+    doc.setDocumentContent("<html><body>Swagger Java</body></html>");
     doc.setTest(true);
 
     docraptor.docsPost(new_doc);

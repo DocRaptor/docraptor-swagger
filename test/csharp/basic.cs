@@ -11,9 +11,9 @@ namespace DocRaptorConsoleExample {
 
       NewDoc new_doc = new NewDoc();
       Doc doc = new Doc();
-      doc.Name = "eli-real-1.pdf";
+      doc.Name = "swagger-csharp.pdf";
       doc.Test = true;
-      doc.DocumentContent = "hihihi";
+      doc.DocumentContent = "<html><body>Swagger C#</body></html>";
       doc.DocumentType = "pdf";
 
       new_doc.Doc = doc;

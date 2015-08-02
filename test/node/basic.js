@@ -12,9 +12,9 @@ var params = {
   "user_credentials": "YOUR_API_KEY_HERE",
   "doc": {
     "doc": {
-      "name": "eli-real-1.pdf",
+      "name": "swagger-node.pdf",
       "document_type": "pdf",
-      "document_content": "hihihi",
+      "document_content": "<html><body>Swagger Node</body></html>",
       "test": true
     }
   }

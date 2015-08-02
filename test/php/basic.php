@@ -15,10 +15,10 @@ use docraptor\DefaultApi as DefaultApi;
 
 
 $doc = new Doc();
-$doc->setName("eli-real-1.pdf");
+$doc->setName("swagger-php.pdf");
 $doc->setTest(true);
 $doc->setDocumentType("pdf");
-$doc->setDocumentContent("hihihi");
+$doc->setDocumentContent("<html><body>Swagger PHP</body></html>");
 
 $new_doc = new NewDoc();
 $new_doc->setDoc($doc);
