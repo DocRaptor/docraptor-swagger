@@ -17,6 +17,6 @@ public class Basic {
     doc.setDocumentContent("hihihi");
     doc.setTest(true);
 
-    docraptor.docsPost(new_doc, "YOUR_API_KEY_HERE");
+    docraptor.docsPost(new_doc);
   }
 }

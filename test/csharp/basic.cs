@@ -25,7 +25,7 @@ namespace DocRaptorConsoleExample {
 
       new_doc.Doc = doc;
 
-      docraptor.DocsPost(new_doc, "");
+      docraptor.DocsPost(new_doc);
     }
   }
 }
