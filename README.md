@@ -2,6 +2,8 @@
 
 Repeatable process for generating DocRaptor API clients using the latest development version of Swagger.
 
+*WARNING*: The generated libraries currently make requests against https://smoke.docraptor.com, not production!
+
 ## Setup
 
 ```sh
