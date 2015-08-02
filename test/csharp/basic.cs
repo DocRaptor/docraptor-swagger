@@ -1,13 +1,6 @@
-using System;
-using System.IO;
-using System.Text;
-using System.Net;
-using System.Web;
-using System.Runtime.Serialization;
 using DocRaptor.Client;
 using DocRaptor.Model;
 using DocRaptor.Api;
-
 
 namespace DocRaptorConsoleExample {
   class DocRaptor {
