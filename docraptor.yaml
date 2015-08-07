@@ -33,6 +33,60 @@ paths:
           description: Successful response
           schema:
             type: file
+  /async_docs:
+    post:
+      description: |
+        Creates a document asynchronously.
+      security:
+        - basicAuth: []
+      parameters:
+        - name: doc
+          in: body
+          description: blah
+          required: true
+          schema: # json in the body requires schema
+            $ref: '#/definitions/Doc'
+      responses:
+        200:
+          description: Successful response
+          schema:
+            $ref: '#/definitions/AsyncDoc'
+
+  /status/{id}:
+    get:
+      description: |
+        WTF IS GOING ON WITH THAT THING THAT I SENT YOU BEFORE?
+      security:
+        - basicAuth: []
+      parameters:
+        - name: id
+          in: path
+          description: blah
+          required: true
+          schema: # json in the body requires schema
+            $ref: '#/definitions/AsyncDocStatus'
+      responses:
+        200:
+          description: Successful response
+          schema:
+            $ref: '#/definitions/AsyncDocStatus'
+
+  /download/{id}:
+    get:
+      description: |
+        Downloads a document.
+      security:
+        - basicAuth: []
+      parameters:
+        - name: id
+          in: path
+          description: blah
+          required: true
+      responses:
+        200:
+          description: Successful response
+          schema:
+            type: file
 
 definitions:
   Doc:
@@ -53,3 +107,30 @@ definitions:
       test:
         type: boolean
         default: true
+
+        strict:
+        tag:
+        javascript:
+
+        prince_options:
+
+  AsyncDoc:
+    type: object
+    properties:
+      status_id:
+        type: string
+
+  AsyncDocStatus:
+    type: object
+    properties:
+      status:
+        type: string
+      download_url:
+        type: string
+      message:
+        type: string
+      number_of_pages:
+        type: integer
+      validation_errors:
+        type: string
+
