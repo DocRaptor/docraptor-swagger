@@ -3,23 +3,18 @@ var Q = require("q");
 
 var Docraptor = require("../../clients/node/docraptor.js");
 var docraptor = new Docraptor.Test();
-// Only works with Bearer Authorization, which I don't think DR supports ATM.
-// docraptor.setToken("YOUR_API_KEY_HERE");
+docraptor.setToken("YOUR_API_KEY_HERE", "user_credentials", true);
 
 require('request').debug = true;
 
-var params = {
-  "user_credentials": "YOUR_API_KEY_HERE",
+var request = docraptor.postDocs({
   "doc": {
-    "doc": {
-      "name": "swagger-node.pdf",
-      "document_type": "pdf",
-      "document_content": "<html><body>Swagger Node</body></html>",
-      "test": true
-    }
+    "name": "swagger-node.pdf",
+    "document_type": "pdf",
+    "document_content": "<html><body>Swagger Node</body></html>",
+    "test": true
   }
-};
-var request = docraptor.postDocs(params);
+});
 
 request.done(function(result) {
   res = result;

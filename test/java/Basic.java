@@ -10,13 +10,11 @@ public class Basic {
     foo.setDebugging(true);
 
     Doc doc = new Doc();
-    NewDoc new_doc = new NewDoc();
-    new_doc.setDoc(doc);
     doc.setName("swagger-java.pdf");
     doc.setDocumentType("pdf");
     doc.setDocumentContent("<html><body>Swagger Java</body></html>");
     doc.setTest(true);
 
-    docraptor.docsPost(new_doc);
+    docraptor.docsPost(doc);
   }
 }

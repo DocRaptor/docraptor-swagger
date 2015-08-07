@@ -27,7 +27,7 @@ paths:
           description: blah
           required: true
           schema: # code-generators require non-inline schema if it is nested
-            $ref: '#/definitions/NewDoc'
+            $ref: '#/definitions/Doc'
       responses:
         200:
           description: Successful response
@@ -53,11 +53,3 @@ definitions:
       test:
         type: boolean
         default: true
-
-  NewDoc:
-    type: object
-    required:
-      - doc
-    properties:
-      doc:
-        $ref: '#/definitions/Doc' 
