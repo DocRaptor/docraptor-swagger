@@ -1,6 +1,8 @@
 using DocRaptor.Client;
 using DocRaptor.Model;
 using DocRaptor.Api;
+using System;
+using System.Threading;
 
 namespace DocRaptorConsoleExample {
   class DocRaptor {
@@ -15,7 +17,28 @@ namespace DocRaptorConsoleExample {
       doc.DocumentContent = "<html><body>Swagger C#</body></html>";
       doc.DocumentType = "pdf";
 
-      docraptor.DocsPost(doc);
+      // response = docraptor.DocsPost(doc);
+      AsyncDoc response = docraptor.AsyncDocsPost(doc);
+
+      AsyncDocStatus status_response;
+      while(true) {
+        status_response = docraptor.StatusIdGet(response.StatusId);
+        if (status_response.Status == "completed") {
+          break;
+        }
+        Thread.Sleep(1000);
+      }
+
+      // WEIRD SHIT NOW, PREPARE THYSELF
+
+      string[] url_parts = status_response.DownloadUrl.Split(new char[] { '/' });
+      string download_id = url_parts[url_parts.Length - 1];
+
+      // </WEIRD SHIT>
+
+      Console.WriteLine(docraptor.DownloadIdGet(download_id));
+
+      Console.WriteLine("SHITS DONE!");
     }
   }
 }
