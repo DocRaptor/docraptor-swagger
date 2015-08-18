@@ -23,4 +23,11 @@ mv clients/node/docraptor.js.tmp clients/node/docraptor.js
 
 
 cd test/node
-node basic.js
+
+if [ "$1" == "" ]; then
+  for test in $(ls *.js); do
+    node $test
+  done
+else
+  node $1.js
+fi

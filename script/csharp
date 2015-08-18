@@ -15,7 +15,18 @@ mcs -lib:$LIB_PATH/bin -reference:Newtonsoft.Json.dll,RestSharp.dll,System.Runti
 
 mono test/csharp/ILRepack.exe /internalize /out:$EVERYTHING_DOCRAPTOR_LIB $MINIMAL_DOCRAPTOR_LIB $LIB_PATH/bin/*.dll
 
-mcs -lib:$LIB_PATH -reference:docraptor-all.dll $TEST_PATH/basic.cs -out:$TEST_PATH/basic.exe
-
 cp $EVERYTHING_DOCRAPTOR_LIB $TEST_PATH
-mono $TEST_PATH/basic.exe
+
+compile_and_run() {
+  base_name=`basename -s .cs $1`
+  mcs -lib:$LIB_PATH -reference:docraptor-all.dll $TEST_PATH/$base_name.cs -out:$TEST_PATH/$base_name.exe
+  mono $TEST_PATH/$base_name.exe
+}
+
+if [ "$1" == "" ]; then
+  for test in $(ls $TEST_PATH/*.cs); do
+    compile_and_run $test
+  done
+else
+  compile_and_run $1.cs
+fi

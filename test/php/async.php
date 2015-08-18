@@ -6,8 +6,6 @@ require "../../clients/php/docraptor/lib/docraptor/Doc.php";
 require "../../clients/php/docraptor/lib/docraptor/AsyncDoc.php";
 require "../../clients/php/docraptor/lib/docraptor/AsyncDocStatus.php";
 require "../../clients/php/docraptor/lib/docraptor/DefaultApi.php";
-// require "../../clients/php/docraptor/lib/ApiClient.php";
-// require "../../clients/php/docraptor/lib/Configuration.php";
 
 use docraptor\Doc as Doc;
 use docraptor\NewDoc as NewDoc;
@@ -25,7 +23,6 @@ $configuration = $api_client->getConfig();
 $configuration->setUsername("YOUR_API_KEY_HERE");
 $configuration->setDebug(true);
 
-// $default_api->docsPost($doc);
 $response = $default_api->asyncDocsPost($doc);
 
 while (true) {

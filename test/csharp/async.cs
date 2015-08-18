@@ -17,7 +17,6 @@ namespace DocRaptorConsoleExample {
       doc.DocumentContent = "<html><body>Swagger C#</body></html>";
       doc.DocumentType = "pdf";
 
-      // response = docraptor.DocsPost(doc);
       AsyncDoc response = docraptor.AsyncDocsPost(doc);
 
       AsyncDocStatus status_response;

@@ -5,4 +5,11 @@ cd "`dirname \"$0\"`/.."
 ./script/generate_language php
 
 cd test/php
-php basic.php
+
+if [ "$1" == "" ]; then
+  for test in $(ls *.php); do
+    php $test
+  done
+else
+  php $1.php
+fi
