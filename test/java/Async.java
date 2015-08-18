@@ -2,7 +2,7 @@ import java.io.*;
 import java.net.*;
 import docraptor.*;
 
-public class Basic {
+public class Async {
   public static void main(String[] args) throws Exception{
     DefaultApi docraptor = new DefaultApi();
     ApiClient foo = docraptor.getApiClient();
@@ -15,7 +15,6 @@ public class Basic {
     doc.setDocumentContent("<html><body>Swagger Java</body></html>");
     doc.setTest(true);
 
-    // docraptor.docsPost(doc);
     AsyncDoc response = docraptor.asyncDocsPost(doc);
 
     AsyncDocStatus status_response = null;
