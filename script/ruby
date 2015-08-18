@@ -6,4 +6,11 @@ cd "`dirname \"$0\"`/.."
 
 cd test/ruby
 bundle install
-ruby basic.rb
+
+if [ $1 == "" ]; then
+  for test in $(ls *.rb); do
+    ruby $test
+  done
+else
+  ruby $1.rb
+fi
