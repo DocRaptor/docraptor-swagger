@@ -13,6 +13,8 @@ securityDefinitions:
   description: HTTP Basic Authentication. Works over `HTTP` and `HTTPS`
 produces:
   - application/pdf
+  - application/vnd.ms-excel
+  - application/vnd.openxmlformats-officedocument.spreadsheetml.sheet
 
 paths:
   /docs:
