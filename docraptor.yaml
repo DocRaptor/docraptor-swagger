@@ -12,6 +12,8 @@ securityDefinitions:
   type: basic
   description: HTTP Basic Authentication. Works over `HTTP` and `HTTPS`
 produces:
+  - application/json
+  - application/xml
   - application/pdf
   - application/vnd.ms-excel
   - application/vnd.openxmlformats-officedocument.spreadsheetml.sheet
@@ -35,6 +37,10 @@ paths:
           description: Successful response
           schema:
             type: file
+        401:
+          description: Unauthorized
+        422:
+          description: Unprocessable Entity
   /async_docs:
     post:
       description: |
@@ -135,4 +141,3 @@ definitions:
         type: integer
       validation_errors:
         type: string
-
