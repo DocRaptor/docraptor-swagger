@@ -12,6 +12,8 @@ script/setup
 
 ## Build & Try with Language X
 
+This will run all test scripts for the language:
+
 ```sh
 script/ruby
 script/python
@@ -20,6 +22,18 @@ script/csharp
 script/php
 script/node
 ```
+
+Or you can run an individual test script like so:
+
+```sh
+script/ruby async
+```
+
+So far we have these tests done in each language:
+- sync
+- async
+- invalid_sync
+- invalid_async
 
 ## Scratchlist of Issues
 While we're still sorting out the basics here's a list of crazy things
