@@ -7,7 +7,7 @@ if [ ! -d "swagger-codegen" ]; then
 fi
 
 cd swagger-codegen
-git checkout -q develop_2.0
+git checkout 9e5de7d || (git fetch && git checkout 9e5de7d)
 cd ..
 
 executable="./swagger-codegen/modules/swagger-codegen-cli/target/swagger-codegen-cli.jar"
