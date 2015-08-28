@@ -12,8 +12,8 @@ echo "compiling test class..."
 
 compile_and_run() {
   base_name=`basename -s .java $1`
-  cap_base_name=`echo $base_name | ruby -e "puts gets.capitalize"`
-  javac -classpath .:"../../clients/java/target/swagger-java-client-1.0.0.jar" $base_name.java
+  cap_base_name=`echo $base_name | ruby -e "puts gets.split(/_/).map(&:capitalize).join"`
+  javac -classpath .:"../../clients/java/target/swagger-java-client-1.0.0.jar" $cap_base_name.java
   echo "running tests"
   java -classpath .:"../../clients/java/target/swagger-java-client-1.0.0.jar":"../../clients/java/target/lib/*" $cap_base_name
 }
