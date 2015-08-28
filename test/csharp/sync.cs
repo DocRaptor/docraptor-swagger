@@ -5,20 +5,18 @@ using System;
 using System.IO;
 using System.Threading;
 
-namespace DocRaptorConsoleExample {
-  class DocRaptor {
-    static void Main(string[] args) {
-      Configuration.Username = "YOUR_API_KEY_HERE";
-      // Configuration.Debug = true; // Not supported in Csharp
-      DefaultApi docraptor = new DefaultApi();
+class SyncTest {
+  static void Main(string[] args) {
+    Configuration.Username = "YOUR_API_KEY_HERE";
+    // Configuration.Debug = true; // Not supported in Csharp
+    DefaultApi docraptor = new DefaultApi();
 
-      Doc doc = new Doc();
-      doc.Name = "swagger-csharp.pdf";
-      doc.Test = true;
-      doc.DocumentContent = "<html><body>Swagger C#</body></html>";
-      doc.DocumentType = "pdf";
+    Doc doc = new Doc();
+    doc.Name = "swagger-csharp.pdf";
+    doc.Test = true;
+    doc.DocumentContent = "<html><body>Swagger C#</body></html>";
+    doc.DocumentType = "pdf";
 
-      Stream response = docraptor.DocsPost(doc);
-    }
+    Stream response = docraptor.DocsPost(doc);
   }
 }
