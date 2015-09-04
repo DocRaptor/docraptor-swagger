@@ -35,6 +35,16 @@ So far we have these tests done in each language:
 - invalid_sync
 - invalid_async
 
+## Layout
+
+`script/` are tools to run things, should be fairly obvious.
+
+`config.*.json` are the language specific config files for doing code generation. You can change thing like class and package names here.
+
+`test/` are the source files for using a native client.
+
+`clients/` are the auto-generated client files. These are deleted and regenerated whenever you run a test.
+
 ## Scratchlist of Issues
 While we're still sorting out the basics here's a list of crazy things
 - java does not have file deserialization support
