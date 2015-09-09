@@ -115,12 +115,104 @@ definitions:
       test:
         type: boolean
         default: true
+      strict:
+        type: string
+        default: none
+        enum:
+          - none
+          - true
+      tag:
+        type: string
+      help:
+        type: boolean
+        default: false
+      javascript:
+        type: boolean
+        default: false
+      referrer:
+        type: string
+      prince_options:
+        $ref: '#/definitions/PrinceOptions'
 
-        strict:
-        tag:
-        javascript:
-
-        prince_options:
+  PrinceOptions:
+    type: object
+    properties:
+      baseurl:
+        type: string
+      no_xinclude:
+        type: boolean
+      no_network:
+        type: boolean
+      http_user:
+        type: string
+      http_password:
+        type: string
+      http_proxy:
+        type: string
+      http_timeout:
+        type: integer
+        # default: 10
+      insecure:
+        type: boolean
+        # default: false
+      media:
+        type: string
+        # default: print
+      no_author_style:
+        type: boolean
+      no_default_style:
+        type: boolean
+      no_embed_fonts:
+        type: boolean
+      no_subset_fonts:
+        type: boolean
+      no_compress:
+        type: boolean
+      encrypt:
+        type: boolean
+      key_bits:
+        type: integer
+        enum:
+          - 40
+          - 128
+      user_password:
+        type: string
+      owner_password:
+        type: string
+      disallow_print:
+        type: boolean
+      disallow_copy:
+        type: boolean
+      disallow_annotate:
+        type: boolean
+      disallow_modify:
+        type: boolean
+      input:
+        type: string
+        # default: html
+        enum:
+          - html
+          - xml
+          - auto
+      version:
+        type: string
+        # default: 10
+        enum:
+          - 7.1
+          - 8.1
+          - 9.0
+          - 10
+      javascript:
+        type: boolean
+      css_dpi:
+        type: integer
+        # default: 96
+      profile:
+        type: string
+        enum:
+          - PDF/A-1b
+          - PDF/X-3:2003
+          - PDF/X-4
 
   AsyncDoc:
     type: object
