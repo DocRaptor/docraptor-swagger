@@ -209,10 +209,11 @@ definitions:
         # default: 96
       profile:
         type: string
-        enum:
-          - PDF/A-1b
-          - PDF/X-3:2003
-          - PDF/X-4
+        # disabled because Java will try to make an enum with PDF/A-1b which fails
+        # enum:
+        #   - PDF/A-1b
+        #   - PDF/X-3:2003
+        #   - PDF/X-4
 
   AsyncDoc:
     type: object
