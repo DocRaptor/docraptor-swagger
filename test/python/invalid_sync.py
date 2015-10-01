@@ -4,10 +4,10 @@ import time
 docraptor.configuration.username = "YOUR_API_KEY_HERE"
 docraptor.configuration.debug = True
 
-default_api = docraptor.DefaultApi()
+doc_api = docraptor.DocApi()
 
 try:
-  response = default_api.docs_post({"test": True, "document_content": "<html><body>Swagger Python</body></html>", "name": "s" * 201, "document_type": "pdf"})
+  response = doc_api.docs_post({"test": True, "document_content": "<html><body>Swagger Python</body></html>", "name": "s" * 201, "document_type": "pdf"})
 except docraptor.rest.ApiException, e:
   exit(0)
 

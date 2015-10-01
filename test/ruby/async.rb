@@ -2,14 +2,18 @@
 require "bundler/setup"
 Bundler.require
 
-DocRaptor::Swagger.configuration.username = "YOUR_API_KEY_HERE"
-DocRaptor::Swagger.configuration.debug = true
+DocRaptor.configure do |dr|
+  dr.username = "YOUR_API_KEY_HERE"
+  dr.debugging = true
+end
 
-response = DocRaptor::DefaultApi.async_docs_post(test: true, document_content: "<html><body>Swagger Ruby</body></html>", name: "swagger-ruby.pdf", document_type: "pdf")
+doc_api = DocRaptor::DocApi.new
+
+response = doc_api.async_docs_post(test: true, document_content: "<html><body>Swagger Ruby</body></html>", name: "swagger-ruby.pdf", document_type: "pdf")
 
 status_response = nil
 loop do
-  status_response = DocRaptor::DefaultApi.status_id_get(response.status_id)
+  status_response = doc_api.status_id_get(response.status_id)
   break if status_response.status == "completed"
   sleep 1
 end
@@ -20,6 +24,6 @@ download_id = status_response.download_url.split("/").last
 
 # </WEIRD SHIT>
 
-puts DocRaptor::DefaultApi.download_id_get(download_id)
+puts doc_api.download_id_get(download_id)
 
 puts "SHITS DONE!"

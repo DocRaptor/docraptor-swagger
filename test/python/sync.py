@@ -4,6 +4,6 @@ import time
 docraptor.configuration.username = "YOUR_API_KEY_HERE"
 docraptor.configuration.debug = True
 
-default_api = docraptor.DefaultApi()
+doc_api = docraptor.DocApi()
 
-response = default_api.docs_post({"test": True, "document_content": "<html><body>Swagger Python</body></html>", "name": "swagger-python.pdf", "document_type": "pdf"})
+response = doc_api.docs_post({"test": True, "document_content": "<html><body>Swagger Python</body></html>", "name": "swagger-python.pdf", "document_type": "pdf"})

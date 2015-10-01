@@ -4,7 +4,7 @@ import docraptor.*;
 
 public class Sync {
   public static void main(String[] args) throws Exception{
-    DefaultApi docraptor = new DefaultApi();
+    DocApi docraptor = new DocApi();
     ApiClient foo = docraptor.getApiClient();
     foo.setUsername("YOUR_API_KEY_HERE");
     foo.setDebugging(true);

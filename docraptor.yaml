@@ -21,6 +21,7 @@ produces:
 paths:
   /docs:
     post:
+      tags: [Doc]
       description: |
         Creates a document synchronously.
       security:
@@ -43,6 +44,7 @@ paths:
           description: Unprocessable Entity
   /async_docs:
     post:
+      tags: [Doc]
       description: |
         Creates a document asynchronously.
       security:
@@ -62,6 +64,7 @@ paths:
 
   /status/{id}:
     get:
+      tags: [Doc]
       description: |
         WTF IS GOING ON WITH THAT THING THAT I SENT YOU BEFORE?
       security:
@@ -81,6 +84,7 @@ paths:
 
   /download/{id}:
     get:
+      tags: [Doc]
       description: |
         Downloads a document.
       security:
@@ -197,11 +201,12 @@ definitions:
       version:
         type: string
         # default: 10
-        enum:
-          - 7.1
-          - 8.1
-          - 9.0
-          - 10
+        # disabled because Java will try to make an enum as 7_1 which fails
+        # enum:
+        #   - 7.1
+        #   - 8.1
+        #   - 9.0
+        #   - 10
       javascript:
         type: boolean
       css_dpi:

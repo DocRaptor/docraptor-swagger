@@ -2,14 +2,18 @@
 require "bundler/setup"
 Bundler.require
 
-DocRaptor::Swagger.configuration.username = "YOUR_API_KEY_HERE"
-DocRaptor::Swagger.configuration.debug = true
+DocRaptor.configure do |dr|
+  dr.username = "YOUR_API_KEY_HERE"
+  dr.debugging = true
+end
 
-response = DocRaptor::DefaultApi.async_docs_post(test: true, document_content: "<html><body>Swagger Ruby</body></html>", name: "s" * 201, document_type: "pdf")
+dr = DocRaptor::DocApi.new
+
+response = dr.async_docs_post(test: true, document_content: "<html><body>Swagger Ruby</body></html>", name: "s" * 201, document_type: "pdf")
 
 status_response = nil
 30.times do
-  status_response = DocRaptor::DefaultApi.status_id_get(response.status_id)
+  status_response = dr.status_id_get(response.status_id)
   exit if status_response.status == "failed"
   sleep 1
 end

@@ -9,7 +9,7 @@ class InvalidSyncTest {
   static void Main(string[] args) {
     Configuration.Username = "YOUR_API_KEY_HERE";
     // Configuration.Debug = true; // Not supported in Csharp
-    DefaultApi docraptor = new DefaultApi();
+    DocApi docraptor = new DocApi();
 
     Doc doc = new Doc();
     doc.Name = new String('s', 201);

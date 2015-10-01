@@ -2,12 +2,17 @@
 require "bundler/setup"
 Bundler.require
 
-DocRaptor::Swagger.configuration.username = "YOUR_API_KEY_HERE"
-DocRaptor::Swagger.configuration.debug = true
+DocRaptor.configure do |dr|
+  dr.username = "YOUR_API_KEY_HERE"
+  dr.debugging = true
+end
+
+doc_api = DocRaptor::DocApi.new
+
 
 begin
-  response = DocRaptor::DefaultApi.docs_post(test: true, name: "s" * 201, document_type: "pdf")
-rescue => DocRaptor::Swagger::ApiError
+  response = doc_api.docs_post(test: true, name: "s" * 201, document_type: "pdf")
+rescue DocRaptor::ApiError
   exit
 end
 

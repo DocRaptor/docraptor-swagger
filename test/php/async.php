@@ -5,11 +5,11 @@ require "../../clients/php/docraptor/lib/ApiClient.php";
 require "../../clients/php/docraptor/lib/docraptor/Doc.php";
 require "../../clients/php/docraptor/lib/docraptor/AsyncDoc.php";
 require "../../clients/php/docraptor/lib/docraptor/AsyncDocStatus.php";
-require "../../clients/php/docraptor/lib/docraptor/DefaultApi.php";
+require "../../clients/php/docraptor/lib/docraptor/DocApi.php";
 
 use docraptor\Doc as Doc;
 use docraptor\NewDoc as NewDoc;
-use docraptor\DefaultApi as DefaultApi;
+use docraptor\DocApi as DocApi;
 
 $doc = new Doc();
 $doc->setName("swagger-php.pdf");
@@ -17,16 +17,16 @@ $doc->setTest(true);
 $doc->setDocumentType("pdf");
 $doc->setDocumentContent("<html><body>Swagger PHP</body></html>");
 
-$default_api = new DefaultApi();
-$api_client = $default_api->getApiClient();
+$doc_api = new DocApi();
+$api_client = $doc_api->getApiClient();
 $configuration = $api_client->getConfig();
 $configuration->setUsername("YOUR_API_KEY_HERE");
 $configuration->setDebug(true);
 
-$response = $default_api->asyncDocsPost($doc);
+$response = $doc_api->asyncDocsPost($doc);
 
 while (true) {
-  $status_response = $default_api->statusIdGet($response->getStatusId());
+  $status_response = $doc_api->statusIdGet($response->getStatusId());
   if ($status_response->getStatus() == "completed") {
     break;
   }
@@ -39,7 +39,7 @@ $download_id = end($split_url);
 
 # </WEIRD SHIT>
 
-echo $default_api->downloadIDGet($download_id);
+echo $doc_api->downloadIDGet($download_id);
 
 echo "SHITS DONE!";
 
