@@ -6,9 +6,14 @@ if [ ! -d "swagger-codegen" ]; then
   git clone https://github.com/swagger-api/swagger-codegen
 fi
 
-SWAGGER_CODGEN_REVISION="053af7a7498c6f9e676718224cce4266b6920551"
 cd swagger-codegen
-git checkout $SWAGGER_CODGEN_REVISION || (git fetch && git checkout $SWAGGER_CODGEN_REVISION)
+
+SWAGGER_CODGEN_REVISION="053af7a7498c6f9e676718224cce4266b6920551"
+if [[ `cat .git/HEAD` != "$SWAGGER_CODGEN_REVISION" ]]; then
+  git fetch
+  git checkout $SWAGGER_CODGEN_REVISION
+  mvn clean package
+fi
 cd ..
 
 executable="./swagger-codegen/modules/swagger-codegen-cli/target/swagger-codegen-cli.jar"
