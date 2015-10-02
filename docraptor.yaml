@@ -183,6 +183,12 @@ definitions:
       referrer:
         type: string
         description: Set HTTP referrer when generating this document.
+      callback_url:
+        type: string
+        description: |
+          A URL that will receive a POST request after successfully completing an asynchronous document.
+          The POST data will include download_url and download_id similar to status api responses.
+          WARNING: this only works on asynchronous documents.
       prince_options:
         $ref: '#/definitions/PrinceOptions'
 
