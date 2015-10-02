@@ -7,13 +7,13 @@ DocRaptor.configure do |dr|
   dr.debugging = true
 end
 
-dr = DocRaptor::DocApi.new
+doc_api = DocRaptor::DocApi.new
 
-response = dr.async_docs_post(test: true, document_content: "<html><body>Swagger Ruby</body></html>", name: "s" * 201, document_type: "pdf")
+response = doc_api.async_docs_post(test: true, document_content: "<html><body>Swagger Ruby</body></html>", name: "s" * 201, document_type: "pdf")
 
 status_response = nil
 30.times do
-  status_response = dr.status_id_get(response.status_id)
+  status_response = doc_api.status_id_get(response.status_id)
   exit if status_response.status == "failed"
   sleep 1
 end
