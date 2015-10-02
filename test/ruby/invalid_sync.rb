@@ -7,7 +7,7 @@ DocRaptor.configure do |dr|
   dr.debugging = true
 end
 
-doc_api = DocRaptor::DocApi.new
+doc_api = DocRaptor::ClientApi.new
 
 
 begin

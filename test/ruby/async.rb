@@ -7,7 +7,7 @@ DocRaptor.configure do |dr|
   dr.debugging = true
 end
 
-doc_api = DocRaptor::DocApi.new
+doc_api = DocRaptor::ClientApi.new
 
 response = doc_api.async_docs_post(test: true, document_content: "<html><body>Swagger Ruby</body></html>", name: "swagger-ruby.pdf", document_type: "pdf")
 

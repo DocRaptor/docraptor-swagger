@@ -8,7 +8,7 @@ class AsyncTest {
   static void Main(string[] args) {
     Configuration.Username = "YOUR_API_KEY_HERE";
     // Configuration.Debug = true; // Not supported in Csharp
-    DocApi docraptor = new DocApi();
+    ClientApi docraptor = new ClientApi();
 
     Doc doc = new Doc();
     doc.Name = "swagger-csharp.pdf";

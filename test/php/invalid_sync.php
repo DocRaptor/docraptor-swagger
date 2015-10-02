@@ -6,11 +6,11 @@ require "../../clients/php/docraptor/lib/ApiException.php";
 require "../../clients/php/docraptor/lib/docraptor/Doc.php";
 require "../../clients/php/docraptor/lib/docraptor/AsyncDoc.php";
 require "../../clients/php/docraptor/lib/docraptor/AsyncDocStatus.php";
-require "../../clients/php/docraptor/lib/docraptor/DocApi.php";
+require "../../clients/php/docraptor/lib/docraptor/ClientApi.php";
 
 use docraptor\Doc as Doc;
 use docraptor\NewDoc as NewDoc;
-use docraptor\DocApi as DocApi;
+use docraptor\ClientApi as ClientApi;
 
 $doc = new Doc();
 $doc->setName(str_repeat("s", 201));
@@ -18,7 +18,7 @@ $doc->setTest(true);
 $doc->setDocumentType("pdf");
 $doc->setDocumentContent("<html><body>Swagger PHP</body></html>");
 
-$doc_api = new DocApi();
+$doc_api = new ClientApi();
 $api_client = $doc_api->getApiClient();
 $configuration = $api_client->getConfig();
 $configuration->setUsername("YOUR_API_KEY_HERE");

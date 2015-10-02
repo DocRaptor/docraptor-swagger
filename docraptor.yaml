@@ -21,7 +21,7 @@ produces:
 paths:
   /docs:
     post:
-      tags: [Doc]
+      tags: [Client]
       description: |
         Creates a document synchronously.
       security:
@@ -44,7 +44,7 @@ paths:
           description: Unprocessable Entity
   /async_docs:
     post:
-      tags: [Doc]
+      tags: [Client]
       description: |
         Creates a document asynchronously.
       security:
@@ -64,7 +64,7 @@ paths:
 
   /status/{id}:
     get:
-      tags: [Doc]
+      tags: [Client]
       description: |
         WTF IS GOING ON WITH THAT THING THAT I SENT YOU BEFORE?
       security:
@@ -84,7 +84,7 @@ paths:
 
   /download/{id}:
     get:
-      tags: [Doc]
+      tags: [Client]
       description: |
         Downloads a document.
       security:

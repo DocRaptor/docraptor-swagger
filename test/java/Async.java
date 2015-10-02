@@ -4,7 +4,7 @@ import docraptor.*;
 
 public class Async {
   public static void main(String[] args) throws Exception{
-    DocApi docraptor = new DocApi();
+    ClientApi docraptor = new ClientApi();
     ApiClient foo = docraptor.getApiClient();
     foo.setUsername("YOUR_API_KEY_HERE");
     foo.setDebugging(true);
