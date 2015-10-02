@@ -27,14 +27,7 @@ class AsyncTest {
       Thread.Sleep(1000);
     }
 
-    // WEIRD SHIT NOW, PREPARE THYSELF
-
-    string[] url_parts = status_response.DownloadUrl.Split(new char[] { '/' });
-    string download_id = url_parts[url_parts.Length - 1];
-
-    // </WEIRD SHIT>
-
-    Console.WriteLine(docraptor.DownloadIdGet(download_id));
+    Console.WriteLine(docraptor.DownloadIdGet(status_response.DownloadId));
 
     Console.WriteLine("SHITS DONE!");
   }

@@ -33,13 +33,7 @@ while (true) {
   sleep(1);
 }
 
-# WEIRD SHIT NOW, PREPARE THYSELF
-$split_url = explode("/", $status_response->getDownloadUrl());
-$download_id = end($split_url);
-
-# </WEIRD SHIT>
-
-echo $doc_api->downloadIDGet($download_id);
+echo $doc_api->downloadIDGet($status_response->getDownloadId());
 
 echo "SHITS DONE!";
 

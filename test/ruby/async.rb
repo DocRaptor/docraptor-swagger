@@ -18,12 +18,6 @@ loop do
   sleep 1
 end
 
-# WEIRD SHIT NOW, PREPARE THYSELF
-
-download_id = status_response.download_url.split("/").last
-
-# </WEIRD SHIT>
-
-puts doc_api.download_id_get(download_id)
+puts doc_api.download_id_get(status_response.download_id)
 
 puts "SHITS DONE!"

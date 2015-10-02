@@ -26,12 +26,7 @@ function checkStatus(id) {
   request.done(function(result) {
     var json = JSON.parse(result.response.body);
     if (json.status == "completed") {
-      // WEIRD SHIT NOW, PREPARE THYSELF
-      var url_parts = json.download_url.split("/");
-      var download_id = url_parts[url_parts.length - 1];
-      // </WEIRD SHIT>
-
-      var request = docraptor.getDownloadById({id: download_id});
+      var request = docraptor.getDownloadById({id: json.download_id});
       request.done(function(result) {
         console.log(result.response.body);
 

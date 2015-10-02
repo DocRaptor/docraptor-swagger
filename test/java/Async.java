@@ -26,14 +26,7 @@ public class Async {
       Thread.sleep(1000);
     }
 
-    // WEIRD SHIT NOW, PREPARE THYSELF
-
-    String[] url_components = status_response.getDownloadUrl().split("/");
-    String download_id = url_components[url_components.length - 1];
-
-    // </WEIRD SHIT>
-
-    docraptor.downloadIdGet(download_id);
+    docraptor.downloadIdGet(status_response.getDownloadId());
 
   }
 }

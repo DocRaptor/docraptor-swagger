@@ -15,12 +15,6 @@ while True:
     break
   time.sleep(1)
 
-# WEIRD SHIT NOW, PREPARE THYSELF
-
-download_id = status_response.download_url.split("/")[-1]
-
-# </WEIRD SHIT>
-
-print doc_api.download_id_get(download_id)
+print doc_api.download_id_get(status_response.download_id)
 
 print "SHITS DONE!"

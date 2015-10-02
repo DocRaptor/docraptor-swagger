@@ -233,6 +233,8 @@ definitions:
         type: string
       download_url:
         type: string
+      download_id:
+        type: string
       message:
         type: string
       number_of_pages:
