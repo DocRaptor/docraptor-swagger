@@ -4,6 +4,15 @@ This repo is for keeping the [swagger config](docraptor.yaml) and [scripts](scri
 
 For historical reasons we have the Node.js client in this repo, but all other languages exist in their [own repos](https://github.com/docraptor/). Eventually the Node.js client will move elsewhere.
 
+## Development and Release
+
+If you make changes to `docraptor.yaml` or something in `script/`, you probably will want to synchronize that change to all the language repos. Do the following for each of the repos.
+
+1. Run `script/update_from_upstream`
+2. Inspect changes and modify examples, readme, tests, etc.
+3. Commit and push to GitHub
+4. Follow release instructions for that repo.
+
 ## Scratchlist of Issues
 While we're still sorting out the basics here's a list of crazy things
 - java does not have file deserialization support
