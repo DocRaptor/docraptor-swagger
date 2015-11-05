@@ -1,49 +1,8 @@
 # DocRaptor Swagger
 
-Repeatable process for generating DocRaptor API clients using the latest development version of Swagger.
+This repo is for keeping the [swagger config](docraptor.yaml) and [scripts](scripts/) which we use to generate client libraries in many languages. You should only need to modify this repo if you're changing the options for generating swagger clients.
 
-*WARNING*: The generated libraries currently make requests against https://smoke.docraptor.com, not production!
-
-## Setup
-
-```sh
-script/setup
-```
-
-## Build & Try with Language X
-
-This will run all test scripts for the language:
-
-```sh
-script/ruby
-script/python
-script/java
-script/csharp
-script/php
-script/node
-```
-
-Or you can run an individual test script like so:
-
-```sh
-script/ruby async
-```
-
-So far we have these tests done in each language:
-- sync
-- async
-- invalid_sync
-- invalid_async
-
-## Layout
-
-`script/` are tools to run things, should be fairly obvious.
-
-`config.*.json` are the language specific config files for doing code generation. You can change thing like class and package names here.
-
-`test/` are the source files for using a native client.
-
-`clients/` are the auto-generated client files. These are deleted and regenerated whenever you run a test.
+For historical reasons we have the Node.js client in this repo, but all other languages exist in their [own repos](https://github.com/docraptor/). Eventually the Node.js client will move elsewhere.
 
 ## Scratchlist of Issues
 While we're still sorting out the basics here's a list of crazy things
