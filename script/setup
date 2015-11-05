@@ -2,19 +2,6 @@
 set -e
 cd "`dirname \"$0\"`/.."
 
-if [ `which python` != "/usr/local/bin/python" ]; then
-	echo "We think you should install python through homebrew for a sudoless experience."
-  echo "Enter to continue ^C to cancel: "
-  read
-  brew install python
-fi
-
-which mono || brew install mono
-
-(php -v | grep 'PHP 5.3') || brew install homebrew/php/php53
-which composer || brew install homebrew/php/composer
-
-
 rm -rf ./output/ # clean-up previous generated client directory
 ./script/swagger
 
