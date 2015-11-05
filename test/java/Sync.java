@@ -11,7 +11,7 @@ public class Sync {
 
     Doc doc = new Doc();
     doc.setName("swagger-java.pdf");
-    doc.setDocumentType("pdf");
+    doc.setDocumentType(Doc.DocumentTypeEnum.PDF);
     doc.setDocumentContent("<html><body>Swagger Java</body></html>");
     doc.setTest(true);
 

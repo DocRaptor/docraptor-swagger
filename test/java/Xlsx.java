@@ -11,7 +11,7 @@ public class Xlsx {
 
     Doc doc = new Doc();
     doc.setName("swagger-java.xlsx");
-    doc.setDocumentType("xlsx");
+    doc.setDocumentType(Doc.DocumentTypeEnum.XLSX);
     doc.setDocumentContent("<html><body><table><tr><td>Swagger Java</td></tr></table></body></html>");
     doc.setTest(true);
 
