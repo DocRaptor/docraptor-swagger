@@ -11,7 +11,7 @@ public class InvalidSync {
 
     Doc doc = new Doc();
     doc.setName(new String(new char[201]).replace("\0", "s"));
-    doc.setDocumentType("pdf");
+    doc.setDocumentType(Doc.DocumentTypeEnum.PDF);
     doc.setDocumentContent("<html><body>Swagger Java</body></html>");
     doc.setTest(true);
 
