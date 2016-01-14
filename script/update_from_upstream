@@ -23,7 +23,7 @@ get_upstream() {
 
 original=`md5 script/update_from_upstream`
 get_upstream script/update_from_upstream
-if [[ `md5 script/update_from_upstream` != original ]]; then
+if [[ `md5 script/update_from_upstream` != "$original" ]]; then
   echo "Detected updated update_from_upstream command, running again"
   script/update_from_upstream
   exit 0 # recursive call above handled everything
