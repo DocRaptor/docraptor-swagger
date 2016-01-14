@@ -2,16 +2,6 @@
 
 This repo is for keeping the [swagger config](docraptor.yaml) and [scripts](script/) which we use to generate client libraries in many languages. You should only need to modify this repo if you're changing the options for generating swagger clients.
 
-For historical reasons we have the Node.js client in this repo, but all other languages exist in their [own repos](https://github.com/docraptor/). Eventually the Node.js client will move elsewhere.
-
-## Setup
-
-This is only needed for working on the Node.js client.
-
-```sh
-script/setup
-```
-
 ## Development and Release
 
 If you make changes to `docraptor.yaml` or something in `script/`, you probably will want to synchronize that change to all the language repos. Do the following for each of the repos.

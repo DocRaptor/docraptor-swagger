@@ -1,5 +1,2 @@
 .DS_Store
 Thumbs.db
-clients/
-swagger-codegen/
-node_modules/
