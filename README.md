@@ -11,12 +11,6 @@ If you make changes to `docraptor.yaml` or something in `script/`, you probably 
 3. Commit and push to GitHub
 4. Follow release instructions for that repo.
 
-## Scratchlist of Issues
-While we're still sorting out the basics here's a list of crazy things
-- java does not have file deserialization support
-- add version numbers to our clients
-- node is using a non-standard generator because we couldn't easily get the standard dynamic one working
-
 ## Things we might do to/for Swagger
 * Add naming convention descriptions to all config helps
 * Document how to setup/run all the different languages for newbies like us
