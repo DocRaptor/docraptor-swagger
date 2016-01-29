@@ -26,7 +26,6 @@ paths:
       description: >
         Creates a document synchronously.
       security:
-
         - basicAuth: []
       parameters:
         - name: doc
@@ -91,7 +90,6 @@ paths:
       description: >
         Check on the status of an asynchronously created document.
       security:
-
         - basicAuth: []
       parameters:
         - name: id
@@ -112,15 +110,13 @@ paths:
         500:
           description: Server Error
 
-
   /download/{id}:
     get:
       operationId: getAsyncDoc
       tags: [Client]
-      description:
+      description: >
         Downloads a document.
       security:
-
         - basicAuth: []
       parameters:
         - name: id
