@@ -10,7 +10,7 @@ schemes: [https]
 securityDefinitions:
   basicAuth:
     type: basic
-    description: HTTP Basic Authentication. Works over `HTTP` and `HTTPS`
+    description: Use your API key as the username. Password does not need to be set.
 produces:
   - application/json
   - application/xml
