@@ -22,7 +22,7 @@ paths:
   /docs:
     post:
       operationId: createDoc
-      tags: [Client]
+      tags: [Doc]
       description: >
         Creates a document synchronously.
       security:
@@ -53,7 +53,7 @@ paths:
   /async_docs:
     post:
       operationId: createAsyncDoc
-      tags: [Client]
+      tags: [Doc]
       description: >
         Creates a document asynchronously.
         You must use a callback url or the the returned status id and the status api to find out when it completes.
@@ -86,7 +86,7 @@ paths:
   /status/{id}:
     get:
       operationId: getAsyncDocStatus
-      tags: [Client]
+      tags: [Doc]
       description: >
         Check on the status of an asynchronously created document.
       security:
@@ -113,7 +113,7 @@ paths:
   /download/{id}:
     get:
       operationId: getAsyncDoc
-      tags: [Client]
+      tags: [Doc]
       description: >
         Downloads a document.
       security:
