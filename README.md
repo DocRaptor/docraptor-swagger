@@ -7,9 +7,10 @@ This repo is for keeping the [swagger config](docraptor.yaml) and [scripts](scri
 If you make changes to `docraptor.yaml` or something in `script/`, you probably will want to synchronize that change to all the language repos. Do the following for each of the repos.
 
 1. Run `script/update_from_upstream`
-2. Inspect changes and modify examples, readme, tests, etc.
-3. Commit and push to GitHub
-4. Follow release instructions for that repo.
+2. Run `script/generate_language <language>`
+3. Inspect changes and modify examples, readme, tests, etc.
+4. Commit and push to GitHub
+5. Follow release instructions for that repo.
 
 ## Things we might do to/for Swagger
 * Add naming convention descriptions to all config helps
