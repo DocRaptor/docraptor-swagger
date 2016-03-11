@@ -1,6 +1,6 @@
 # DocRaptor Swagger
 
-This repo is for keeping the [swagger config](docraptor.yaml) and [scripts](script/) which we use to generate client libraries in many languages. You should only need to modify this repo if you're changing the options for generating swagger clients.
+This repo is for keeping the [swagger config](docraptor.yaml) and [scripts](script/) which we use to generate client libraries in many languages. You should only need to modify this repo if you're changing the api, or options for generating swagger clients.
 
 ## Development and Release
 
