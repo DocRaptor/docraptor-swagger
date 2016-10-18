@@ -7,7 +7,7 @@ if [[ $(basename "$PWD") == "swagger" ]]; then
   exit 1
 fi
 
-branch="master"
+branch="next"
 
 # Gets content at $1 and puts it into $2, automatically chmod +x if $2 is the
 # script dir.
