@@ -4,6 +4,8 @@ This repo is for keeping the [swagger config](docraptor.yaml) and [scripts](scri
 
 ## Development and Release
 
+If you make changes to `docraptor.yaml` you may need to update the info/version near the top of the file. This describes the server API version. For instance, if you add a new non-breaking API parameter then you'll want to increment the minor version. This will cause version numbers to change in some of the individual repos as well so you'll want to keep those changes.
+
 If you make changes to `docraptor.yaml` or something in `script/`, you probably will want to synchronize that change to all the language repos. Do the following for each of the repos.
 
 1. Run `script/update_from_upstream`

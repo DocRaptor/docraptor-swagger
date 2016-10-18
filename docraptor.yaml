@@ -1,7 +1,7 @@
 swagger: '2.0'
 
 info:
-  version: "1.1.0"
+  version: "1.2.0"
   title: DocRaptor v1
 
 host: docraptor.com
@@ -144,6 +144,9 @@ definitions:
       - document_type
       - document_content
     properties:
+      pipeline:
+        type: string
+        description: Specify a specific verison of the DocRaptor Pipeline to use.
       name:
         type: string
         description: A name for identifying your document.
