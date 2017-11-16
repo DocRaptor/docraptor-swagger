@@ -1,8 +1,13 @@
 swagger: '2.0'
 
 info:
-  version: "1.3.1"
+  version: "1.3.0"
   title: DocRaptor v1
+  description: "A native client library for the DocRaptor HTML to PDF/XLS service."
+  termsOfService: "https://docraptor.com/tos"
+  license:
+    name: "MIT"
+    url: "https://mit-license.org/"
 
 host: docraptor.com
 basePath: /
@@ -300,7 +305,8 @@ definitions:
           - auto
       version:
         type: string
-        description: Specify a specific verison of PrinceXML to use.
+        deprecated: true
+        description: Deprecated, use the appropriate `pipeline` version. Specify a specific verison of PrinceXML to use.
         # default: 10
         # disabled because Java will try to make an enum as 7_1 which fails
         # enum:
@@ -321,6 +327,8 @@ definitions:
         # disabled because Java will try to make an enum with PDF/A-1b which fails
         # enum:
         #   - PDF/A-1b
+        #   - PDF/A-3b # (Pipeline 6+)
+        #   - PDF/X-1a # (Pipeline 6+)
         #   - PDF/X-3:2003
         #   - PDF/X-4
       pdf_title:
