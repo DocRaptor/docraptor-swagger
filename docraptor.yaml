@@ -1,7 +1,6 @@
 swagger: '2.0'
 
 info:
-  version: "1.3.0"
   title: DocRaptor v1
   description: "A native client library for the DocRaptor HTML to PDF/XLS service."
   termsOfService: "https://docraptor.com/tos"
