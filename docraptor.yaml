@@ -55,12 +55,77 @@ paths:
           description: Unprocessable Entity
         500:
           description: Server Error
+
+  /hosted_docs:
+    post:
+      operationId: createHostedDoc
+      tags: [Doc]
+      description: >
+        Creates a hosted document synchronously.
+      security:
+        - basicAuth: []
+      parameters:
+        - name: doc
+          in: body
+          description: The document to be created.
+          required: true
+          schema:
+            $ref: '#/definitions/Doc'
+      responses:
+        200:
+          description: Successful response
+          schema:
+            $ref: '#/definitions/HostedDoc'
+        400:
+          description: Bad Request
+        401:
+          description: Unauthorized
+        403:
+          description: Forbidden
+        422:
+          description: Unprocessable Entity
+        500:
+          description: Server Error
+
   /async_docs:
     post:
       operationId: createAsyncDoc
       tags: [Doc]
       description: >
         Creates a document asynchronously.
+        You must use a callback url or the the returned status id and the status api to find out when it completes.
+        Then use the download api to get the document.
+      security:
+        - basicAuth: []
+      parameters:
+        - name: doc
+          in: body
+          description: The document to be created.
+          required: true
+          schema:
+            $ref: '#/definitions/Doc'
+      responses:
+        200:
+          description: Successful response
+          schema:
+            $ref: '#/definitions/AsyncDoc'
+        400:
+          description: Bad Request
+        401:
+          description: Unauthorized
+        403:
+          description: Forbidden
+        422:
+          description: Unprocessable Entity
+        500:
+          description: Server Error
+
+  /hosted_async_docs:
+    post:
+      operationId: createHostedAsyncDoc
+      tags: [Doc]
+      description: >
+        Creates a hosted document asynchronously.
         You must use a callback url or the the returned status id and the status api to find out when it completes.
         Then use the download api to get the document.
       security:
@@ -117,16 +182,16 @@ paths:
 
   /download/{id}:
     get:
-      operationId: getAsyncDoc
+      operationId: getDoc
       tags: [Doc]
       description: >
-        Downloads a document.
+        Downloads a finished document.
       security:
         - basicAuth: []
       parameters:
         - name: id
           in: path
-          description: The download_id returned from status request or a callback.
+          description: The download_id returned from status request, hosted document response, or a callback.
           required: true
       responses:
         200:
@@ -363,3 +428,19 @@ definitions:
       validation_errors:
         type: string
         description: Error information.
+
+  HostedDoc:
+    type: object
+    properties:
+      status:
+        type: string
+        description: The present status of the document. Can be queued, working, completed, and failed.
+      download_url:
+        type: string
+        description: The URL where the document can be retrieved. This URL may only be used a few times.
+      download_id:
+        type: string
+        description: The identifier for downloading the document with the download api.
+      number_of_pages:
+        type: integer
+        description: Number of PDF pages in document.
